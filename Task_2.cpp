@@ -81,7 +81,14 @@ public:
 };  // end of class miles_kilos
 
 
+class meters_yards : public convert_base {
+public:
+  meters_yards(double passed_value) : convert_base(passed_value) { }
 
+  void convert_it() {
+      converted_value = initial_value* ( 39.0/36.0);
+      }
+};
 /*------------------------------------------------------
   Class Name:	meters_yards
   Purpose: Convert from meters to yards.
@@ -89,7 +96,14 @@ public:
 // ADD CODE HERE TO CREATE A CLASS FOR METERS TO YARDS
 // MULTIPLY INITIAL VALUE BY 39.0/36.0 TO GET YARDS.
 
+class yards_meters : public convert_base {
+public:
+  yards_meters(double passed_value) : convert_base(passed_value) { }
 
+  void convert_it() {
+      converted_value = initial_value* ( 36.0/39.0);
+      }
+};
 /*------------------------------------------------------
   Class Name:	yards_meters
   Purpose: Convert from yards to meters.
@@ -110,7 +124,31 @@ cout << endl << "Distance in kilometers is: " << kilos1.get_initial();
 cout << endl << "Distance in miles is: " << kilos1.get_converted();
 cout << endl;
 
+ miles_kilos miles1(60.0);
+ miles1.convert_it();
+
+ cout << endl;
+ cout << endl << "Distance in miles is: " << miles1.get_initial();
+ cout << endl << "Distance in kilometers is: " << miles1.get_converted();
+ cout << endl;
+
+ meters_yards meters1(4.0);
+ meters1.convert_it();
+
+ cout << endl;
+ cout << endl << "Distance in meters is: " << meters1.get_initial();
+ cout << endl << "Distance in yards is: " << meters1.get_converted();
+ cout << endl;
+
+ yards_meters yards1(4.0);
+ yards1.convert_it();
+
+ cout << endl;
+ cout << endl << "Distance in yards is: " << yards1.get_initial();
+ cout << endl << "Distance in meters is: " << yards1.get_converted();
+ cout << endl;
 /* ADD CODE HERE TO:
+
 	1. CREATE A MILES TO KILOS OBJECT, SPECIFYING AN INTIAL VALUE OF 60.
 	2. CALL THE VIRTUAL FUNCTION FOR THAT OBJECT
 	3. PRINT OUT THE INITIAL AND CONVERTED VALUES.
